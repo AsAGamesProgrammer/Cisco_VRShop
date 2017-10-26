@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Teleport Map
   - Controllers
+  - Interactive
   layers:
   - Default
   - TransparentFX

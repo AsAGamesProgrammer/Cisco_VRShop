@@ -45,41 +45,6 @@ public class CheekyVR_ControllerButtonMapping : MonoBehaviour
         // Attempt to grab interactive object on trigger down.
         if (inputList[0].triggerDown)
         {
-            if (closestInteractiveObject[0] != null)
-            {
-                closestInteractiveObject[0].DoAction();
-            }
-        }
-
-        // Attempt to grab interactive object on trigger down.
-        if (inputList[1].triggerDown)
-        {
-            if (closestInteractiveObject[1] != null)
-            {
-                closestInteractiveObject[1].DoAction();
-            }
-        }
-
-        // Attempt to drop an interactive object.
-        if (inputList[0].triggerUp)
-        {
-            if (closestInteractiveObject[0] != null)
-            {
-                closestInteractiveObject[0].EndAction();
-            }
-        }
-
-        // Attempt to drop an interactive object.
-        if (inputList[1].triggerUp)
-        {
-            if (closestInteractiveObject[1] != null)
-            {
-                closestInteractiveObject[1].EndAction();
-            }
-        }
-
-        if (inputList[0].gripButtonDown)
-        {
             // Check that there is an interactive object nearby.
             if (leftControllerCollisionScript.GetClosestObject(leftControllerCollisionScript.potentialInteractiveObjects) != null)
             {
@@ -112,7 +77,8 @@ public class CheekyVR_ControllerButtonMapping : MonoBehaviour
             }
         }
 
-        if (inputList[1].gripButtonDown)
+        // Attempt to grab interactive object on trigger down.
+        if (inputList[1].triggerDown)
         {
             // Check that there is an interactive object nearby.
             if (rightControllerCollisionScript.GetClosestObject(rightControllerCollisionScript.potentialInteractiveObjects) != null)
@@ -146,7 +112,8 @@ public class CheekyVR_ControllerButtonMapping : MonoBehaviour
             }
         }
 
-        if (inputList[0].gripButtonUp)
+        // Attempt to drop an interactive object.
+        if (inputList[0].triggerUp)
         {
             // Check that there is an interactive object cached.
             if (closestInteractiveObject[0] != null)
@@ -167,7 +134,8 @@ public class CheekyVR_ControllerButtonMapping : MonoBehaviour
             }
         }
 
-        if (inputList[1].gripButtonUp)
+        // Attempt to drop an interactive object.
+        if (inputList[1].triggerUp)
         {
             // Check that there is an interactive object cached.
             if (closestInteractiveObject[1] != null)
@@ -186,6 +154,26 @@ public class CheekyVR_ControllerButtonMapping : MonoBehaviour
                 // Finished with the object, set the reference back to null.
                 closestRailingObject[1] = null;
             }
+        }
+
+        if (inputList[0].gripButtonDown)
+        {
+            
+        }
+
+        if (inputList[1].gripButtonDown)
+        {
+            
+        }
+
+        if (inputList[0].gripButtonUp)
+        {
+            
+        }
+
+        if (inputList[1].gripButtonUp)
+        {
+            
         }
 
         // Activate teleport targetting.
@@ -218,41 +206,6 @@ public class CheekyVR_ControllerButtonMapping : MonoBehaviour
         if (inputList[1].applicationButtonUp)
         {
             teleportScript.DeactivateTeleportBeam();
-        }
-
-        float deadzone = 0.01f;
-
-        if (inputList[0].touchpadAxisX >= deadzone ||
-           inputList[0].touchpadAxisX <= -deadzone ||
-           inputList[0].touchpadAxisY >= deadzone ||
-           inputList[0].touchpadAxisY <= -deadzone)
-        {
-            CheekyVR_ControllerMovement.Move(inputList[0].touchpadAxisX, inputList[0].touchpadAxisY);
-        }
-        else
-        {
-            CheekyVR_ControllerMovement.StopMovement();
-        }
-
-        float rotationDeadzone = 0.1f;
-
-        if (inputList[1].touchpadAxisX >= rotationDeadzone ||
-           inputList[1].touchpadAxisX <= -rotationDeadzone)
-        {
-            CheekyVR_ControllerMovement.Rotate(inputList[1].touchpadAxisX);
-        }
-        else
-        {
-            CheekyVR_ControllerMovement.StopMovement();
-        }
-
-        if (inputList[0].triggerAxis > deadzone)
-        {
-            
-        }
-        else
-        {
-            
         }
     }
 
