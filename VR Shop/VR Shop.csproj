@@ -229,6 +229,7 @@
     <None Include="Assets\Game Folder\TheLabRenderer\Shaders\vr_skybox.shader" />
     <None Include="Assets\Game Folder\TheLabRenderer\Shaders\vr_standard.shader" />
     <None Include="Assets\Game Folder\TheLabRenderer\Shaders\vr_utils.cginc" />
+    <None Include="Assets\OrigamiCrane\Origami.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
